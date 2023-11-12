@@ -6,6 +6,7 @@ $names = ['method', 'bukuru', 'merkizedeki'];
     //echo $names[$i] . '<br>';
 //}
  
+//This is foreach loop
 foreach($names as $name){
     echo $name . '<br>';
 }
