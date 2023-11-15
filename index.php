@@ -2,19 +2,18 @@
 
 //include functions
 
-include('method.php');
-echo 'end of php';
+//include('method.php');
+//echo 'end of php';
 
 ?>
 
 <html>
-    <body>
-    <h1>
         <?php
          //echo 'software development';
+         //include('contents.php');
 
-         include('contents.php');
+         include('templates/header.php');
+         include('templates/footer.php');
+
         ?>
-    </h1>
-    </body>
 </html>
