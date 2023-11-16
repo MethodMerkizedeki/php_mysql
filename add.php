@@ -8,13 +8,12 @@ include('templates/header.php');
 // }
 
 if(isset($_POST['submit'])){
-    echo $_POST['email'];
-    echo $_POST['title'];
-    echo $_POST['ingredients']; 
+    echo htmlspecialchars($_POST['email']);
+    echo htmlspecialchars($_POST['title']);
+    echo htmlspecialchars($_POST['ingredients']); 
 }
 
 //include functions
-
 //include('method.php');
 //echo 'end of php';
 
