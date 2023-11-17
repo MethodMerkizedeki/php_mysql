@@ -1,21 +1,27 @@
 <?php
 include('templates/header.php');
 
-// if(isset($_GET['submit'])){
-//     echo $_GET['email'];
-//     echo $_GET['title'];
-//     echo $_GET['ingredients'];
-// }
-
 if(isset($_POST['submit'])){
-    echo htmlspecialchars($_POST['email']);
-    echo htmlspecialchars($_POST['title']);
-    echo htmlspecialchars($_POST['ingredients']); 
-}
 
-//include functions
-//include('method.php');
-//echo 'end of php';
+    //check email
+    if(empty($_POST['email'])){
+        echo 'An email is required' . '<br>';
+    } else {
+        echo htmlspecialchars($_POST['email']);
+    }
+    //check title
+    if(empty($_POST['title'])){
+        echo 'An title is required' . '<br>';
+    } else {
+        echo htmlspecialchars($_POST['title']);
+    }
+    //check ingredients
+    if(empty($_POST['ingredients'])){
+        echo 'At least one ingredients is required' . '<br>';
+    } else {
+        echo htmlspecialchars($_POST['ingredients']);
+    }
+}
 
 ?>
 
@@ -39,4 +45,5 @@ if(isset($_POST['submit'])){
 <?php
 
 include('templates/footer.php');
+
 ?>
