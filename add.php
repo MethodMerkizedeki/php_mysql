@@ -34,6 +34,13 @@ if(isset($_POST['submit'])){
         if(!preg_match('/,/', $ingredients)){
             $errors['ingredients'] =  'ingredients must be a comma separated list';
         }
+
+        if(array_filter($errors)){
+            //echo 'errors in the form';
+        } else {
+            //echo 'the form is valid';
+            header('Location: index.php');
+        }
     }
 } //end of post check
 
