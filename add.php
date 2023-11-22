@@ -1,10 +1,9 @@
 <?php
-include('templates/header.php');
+
+include('templates/config/db_connect.php');
 
 $email = $title = $ingredients = '';
 $errors = array('email' => '', 'title' => '', 'ingredients' => '');
-
-
 
 if(isset($_POST['submit'])){
 
@@ -38,8 +37,22 @@ if(isset($_POST['submit'])){
         if(array_filter($errors)){
             //echo 'errors in the form';
         } else {
-            //echo 'the form is valid';
-            header('Location: index.php');
+
+            $emai = mysqli_real_escape_string($conn, $_POST['email']);
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
+            $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
+            
+            //create sql
+            $sql = "INSERT INTO pizzas(emai, title, ingredients) VALUES('$emai', '$title', '$ingredients')";
+
+            //save to db and check
+            if(mysqli_query($conn, $sql)){
+                //success
+                header('Location: index.php');
+            } else {
+                //error
+                echo 'query error: '. mysqli_error($conn);
+            }
         }
     }
 } //end of post check
@@ -47,6 +60,7 @@ if(isset($_POST['submit'])){
 ?>
 
 <html>
+    <?php include('templates/header.php'); ?>
     <section class="container grey-text">
      <h4 class="center">Add a Pizza</h4>
      <form action="add.php" class="white" method = "POST">

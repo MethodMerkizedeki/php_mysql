@@ -1,12 +1,6 @@
 <?php
 
-//connet to database
-$conn = mysqli_connect('localhost', 'method', '201611038', 'mark_pizza');
-
-//check the connection
-if(!$conn){
-  echo 'connection erroe: ' . mysqli_connect_error();
-}
+include('templates/config/db_connect.php');
 
 //write query for all pizzas
 $sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY title';
@@ -24,8 +18,6 @@ mysqli_free_result($result);
 mysqli_close($conn);
 
 //print_r($pizzas); 
-
-//explode(',',$pizzas[0]['ingredients']);
 
 ?>
 
