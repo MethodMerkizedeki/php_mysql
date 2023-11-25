@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+//to delete a name
+if($_SERVER['QUERY_STRING'] == 'noname'){
+    session_unset();
+}
+
+$name = $_SESSION['name'];
+?>
+
 <head>
     <title>Merkizedeki Pizza</title>
     <!-- Compiled and minified CSS -->
@@ -28,6 +40,7 @@
         <div class="container">
             <a href="index.php" class = "brand-logo brand-text">Mark Pizza</a>
             <ul id = "nav-mobile" class = "right hide-on-small-and-down">
+                <li class ="grey-text"> Hello <?php echo htmlspecialchars($name); ?></li>
                 <li><a href="add.php" class = "btn brand z-depth-0">Add a Pizza</a></li>
             </ul>
         </div>
