@@ -11,8 +11,8 @@ $score = 30;
 
 //echo $score >= 50 ? 'high score' : 'low score';
 
-// <html>
-//     <p><?php echo $score >= 50 ? 'high score' : 'low score'; ?></p>
-// </html>
-
 ?>
+
+<html>
+    <p><?php echo $score >= 50 ? 'high score' : 'low score'; ?></p>
+</html>
