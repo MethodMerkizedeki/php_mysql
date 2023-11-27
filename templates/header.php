@@ -4,10 +4,11 @@ session_start();
 
 //to delete a name
 if($_SERVER['QUERY_STRING'] == 'noname'){
-    session_unset();
+    unset($_SESSION['name']);
 }
 
-$name = $_SESSION['name'];
+$name = $_SESSION['name'] ?? 'Guest';
+
 ?>
 
 <head>
