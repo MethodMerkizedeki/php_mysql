@@ -24,4 +24,25 @@ if(file_exists($file)){
 //make directory
 mkdir('quotes');
 
+$file = 'quotes.txt';
+
+//opening a file for reading
+$handle = fopen($file, 'r');
+
+//read the file
+echo fread($handle,filesize($file)) . '<br>';
+echo fread($handle, 112) . '<br>';
+
+//read a single line
+echo fgets($handle) . '<br>';
+
+//read a single character
+echo fgets($handle);
+
+//writing to a file
+fwrite($handle, "Everything popular is wrong");
+
+//close the file
+fclose($file);
+
 ?>
